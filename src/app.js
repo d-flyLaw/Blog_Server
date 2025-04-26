@@ -1,7 +1,10 @@
+// 根据 NODE_ENV 动态加载对应环境变量文件
+const env = process.env.NODE_ENV || "development";
+require("dotenv").config({ path: `.env.${env}` });
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-require("dotenv").config();
 
 // 创建Express应用
 const app = express();
